@@ -53,6 +53,9 @@ func (mi Mapi) MarshalJSON() ([]byte, error) {
 			}
 			m[k] = mm
 		default:
+			if _, ok := v.(Mapi); ok {
+				continue
+			}
 			if _, err := json.Marshal(v); err == nil {
 				// if it can be marshaled, add it to the map
 				m[k] = v
