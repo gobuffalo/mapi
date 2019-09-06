@@ -5,6 +5,4 @@ github.com/gobuffalo/mapi does not try to reinvent the wheel! Instead, it uses t
 Thank you to the following **GIANTS**:
 
 
-* [github.com/pkg/errors](https://godoc.org/github.com/pkg/errors)
-
 * [github.com/stretchr/testify](https://godoc.org/github.com/stretchr/testify)
