@@ -2,13 +2,12 @@ package mapi
 
 import (
 	"encoding/json"
+	"fmt"
 	"reflect"
 	"strings"
-
-	"github.com/pkg/errors"
 )
 
-var ErrNotFound = errors.New("not found")
+var ErrNotFound = fmt.Errorf("not found")
 
 type Mapi map[string]interface{}
 
@@ -29,7 +28,7 @@ func (mi Mapi) Pluck(s string) (interface{}, error) {
 func (mi *Mapi) UnmarshalJSON(b []byte) error {
 	mm := map[string]interface{}{}
 	if err := json.Unmarshal(b, &mm); err != nil {
-		return errors.WithStack(err)
+		return err
 	}
 	unmarshal(mm)
 	(*mi) = Mapi(mm)
